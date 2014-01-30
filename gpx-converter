@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl http://gpx-converter.cfapps.io --silent --header Content-Type:application/xml --data @"$1" -o "$1"

@@ -1,0 +1,7 @@
+---
+applications:
+- name: gpx-converter
+  memory: 512M
+  instances: 1
+  path: target/gpx-converter.jar
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
