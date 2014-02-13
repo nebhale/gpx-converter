@@ -112,12 +112,24 @@ final class GoogleMapsAugmenter implements Augmenter {
 
                 Double latitude = location.get("lat");
                 Double longitude = location.get("lng");
-                Double elevation = (Double) result.get("elevation");
+                Double elevation = getElevation(result);
 
                 augmented.add(new Point(latitude, longitude, elevation));
             }
 
             return augmented;
+        }
+
+        private Double getElevation(Map<String, Object> result) {
+            Object elevation = result.get("elevation");
+
+            if (elevation instanceof Double) {
+                return (Double) elevation;
+            } else if (elevation instanceof Integer) {
+                return ((Integer) elevation).doubleValue();
+            }
+
+            throw new IllegalArgumentException(String.format("Unable able to process Elevation of type %s", elevation.getClass().getName()));
         }
 
     }
