@@ -27,4 +27,5 @@ interface Augmenter {
      * @return the augmented {@link Point}s
      */
     List<Point> augment(List<Point> points);
+
 }

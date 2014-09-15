@@ -38,6 +38,7 @@ public final class GoogleMapsMapBuilderTest {
         when(this.encoder.encode(Collections.<Point>emptyList())).thenReturn("test-encoded-points");
 
         assertEquals(URI.create("http://maps.googleapis.com/maps/api/staticmap?key=test-api-key&sensor=false&size=-10x-20&scale=1&maptype=test-map-type&path=color:0xff0000ff%7Cweight:1%7Cenc:test-encoded-points"),
-                this.mapBuilder.build(Collections.<Point>emptyList(), "test-map-type", -10, -20));
+            this.mapBuilder.build(Collections.<Point>emptyList(), "test-map-type", -10, -20));
     }
+
 }

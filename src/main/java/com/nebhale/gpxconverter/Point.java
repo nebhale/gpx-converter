@@ -35,15 +35,15 @@ final class Point {
     }
 
     Double getLatitude() {
-        return latitude;
+        return this.latitude;
     }
 
     Double getLongitude() {
-        return longitude;
+        return this.longitude;
     }
 
     Double getElevation() {
-        return elevation;
+        return this.elevation;
     }
 
     @Override

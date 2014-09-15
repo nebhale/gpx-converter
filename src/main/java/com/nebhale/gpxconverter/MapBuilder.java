@@ -31,4 +31,5 @@ interface MapBuilder {
      * @return the URI for the map
      */
     URI build(List<Point> points, String maptype, int width, int height);
+
 }

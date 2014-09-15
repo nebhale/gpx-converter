@@ -43,4 +43,5 @@ public final class PointTest {
     public void testToString() {
         assertEquals("[1.000000, 2.000000, 3.000000]", new Point((double) 1, (double) 2, (double) 3).toString());
     }
+
 }

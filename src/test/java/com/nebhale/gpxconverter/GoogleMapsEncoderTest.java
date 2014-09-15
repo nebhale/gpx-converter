@@ -30,17 +30,19 @@ public final class GoogleMapsEncoderTest {
 
     @Test
     public void encode() {
-        List<Point> points = Arrays.asList(new Point(38.5, -120.2), new Point(40.7, -120.95), new Point(43.252, -126.453));
+        List<Point> points = Arrays.asList(new Point(38.5, -120.2), new Point(40.7, -120.95),
+            new Point(43.252, -126.453));
         assertEquals("_p~iF~ps|U_ulLnnqC_mqNvxq`@", this.encoder.encode(points));
     }
 
     @Test
     public void test() {
         List<Point> points = new ArrayList<>(300);
-        for(int i = 0; i < 300; i++) {
-            points.add(new Point((double)i, (double)i));
+        for (int i = 0; i < 300; i++) {
+            points.add(new Point((double) i, (double) i));
         }
 
         assertEquals(2394, this.encoder.encode(points).length());
     }
+
 }

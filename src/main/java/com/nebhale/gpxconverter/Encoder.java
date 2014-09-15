@@ -27,4 +27,5 @@ interface Encoder {
      * @return the encoded representation of the {@link Point}s
      */
     String encode(List<Point> points);
+
 }

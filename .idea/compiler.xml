@@ -26,7 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gpx-converter" target="1.7" />
+      <module name="gpx-converter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

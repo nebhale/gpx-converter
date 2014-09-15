@@ -30,4 +30,5 @@ public interface RouteBuilder {
      * @return the route {@link Document}
      */
     Document build(String name, List<Point> points);
+
 }

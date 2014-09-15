@@ -34,7 +34,6 @@ final class StandardParser implements Parser {
     @Override
     public String parseName(Document document) {
         NodeList nodes = document.getElementsByTagName("name");
-
         return nodes.item(nodes.getLength() - 1).getTextContent();
     }
 
