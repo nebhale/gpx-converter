@@ -1,6 +1,4 @@
 # GPX Converter
-[![Build Status](https://travis-ci.org/nebhale/gpx-converter.svg?branch=master)](https://travis-ci.org/nebhale/gpx-converter)
-
 This project provides a REST-ful API for converting an existing GPX file into other representations.
 
 ## License

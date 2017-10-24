@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the original author or authors.
+ * Copyright 2014-2017 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,20 +18,24 @@ package com.nebhale.gpxconverter;
 
 final class Point {
 
+    private final Double elevation;
+
     private final Double latitude;
 
     private final Double longitude;
 
-    private final Double elevation;
-
-    Point(Double latitude, Double longitude) {
-        this(latitude, longitude, null);
-    }
-
-    Point(Double latitude, Double longitude, Double elevation) {
+    private Point(Double elevation, Double latitude, Double longitude) {
+        this.elevation = elevation;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.elevation = elevation;
+    }
+
+    static Builder builder() {
+        return new Builder();
+    }
+
+    Double getElevation() {
+        return this.elevation;
     }
 
     Double getLatitude() {
@@ -42,12 +46,43 @@ final class Point {
         return this.longitude;
     }
 
-    Double getElevation() {
-        return this.elevation;
+    static final class Builder {
+
+        private Double elevation;
+
+        private Double latitude;
+
+        private Double longitude;
+
+        private Builder() {
+        }
+
+        Point build() {
+            return new Point(this.elevation, this.latitude, this.longitude);
+        }
+
+        Builder elevation(Double elevation) {
+            this.elevation = elevation;
+            return this;
+        }
+
+        Builder from(Point point) {
+            this.elevation = point.getElevation();
+            this.latitude = point.getLatitude();
+            this.longitude = point.getLongitude();
+            return this;
+        }
+
+        Builder latitude(Double latitude) {
+            this.latitude = latitude;
+            return this;
+        }
+
+        Builder longitude(Double longitude) {
+            this.longitude = longitude;
+            return this;
+        }
+
     }
 
-    @Override
-    public String toString() {
-        return String.format("[%f, %f, %f]", this.latitude, this.longitude, this.elevation);
-    }
 }

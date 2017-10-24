@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the original author or authors.
+ * Copyright 2014-2017 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,30 +16,24 @@
 
 package com.nebhale.gpxconverter;
 
+import com.google.maps.GeoApiContext;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestOperations;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 @SpringBootApplication
-public class Application {
+public class GpxConverterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(GpxConverterApplication.class, args);
     }
 
     @Bean
-    RestOperations restOperations() {
-        return new RestTemplate();
-    }
-
-    @Bean
-    ScheduledExecutorService scheduledExecutorService() {
-        return Executors.newSingleThreadScheduledExecutor();
+    GeoApiContext geoApiContext(@Value("${google.api.key}") String apiKey) {
+        return new GeoApiContext.Builder()
+            .apiKey(apiKey)
+            .build();
     }
 
 }

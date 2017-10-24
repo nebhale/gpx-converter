@@ -1,7 +1,10 @@
 ---
 applications:
 - name: gpx-converter
-  memory: 256M
+  memory: 512M
   instances: 1
-  path: target/gpx-converter.jar
+  path: target/gpx-converter-2-SNAPSHOT.jar
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  env:
+    JAVA_OPTS:               '-Xss256k'
+    JBP_CONFIG_OPEN_JDK_JRE: '{ memory_calculator: { stack_threads: 25 } }'

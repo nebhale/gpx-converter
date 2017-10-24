@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the original author or authors.
+ * Copyright 2014-2017 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,26 +16,16 @@
 
 package com.nebhale.gpxconverter;
 
-import org.w3c.dom.Document;
+import reactor.core.publisher.Mono;
 
-import java.util.List;
-
-interface Parser {
+interface ElevationAugmenter {
 
     /**
-     * Parse an XML {@link Document} for its name
+     * Augment a route with elevation data
      *
-     * @param document the {@link Document} to parse
-     * @return the name
+     * @param route the route to augment
+     * @return the augmented route
      */
-    String parseName(Document document);
-
-    /**
-     * Parse an XML {@link Document} into a collection of points
-     *
-     * @param document the {@link Document} to parse
-     * @return the collection of points
-     */
-    List<Point> parsePoints(Document document);
+    Mono<Route> augment(Route route);
 
 }
